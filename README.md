@@ -8,7 +8,7 @@ TaskPulse is a powerful Bash automation toolkit that turns long, repetitive task
 
 🔹 Customizable scripts: Tailor tasks to fit your workflow.
 
-🔹 Time-saving automation: Focus on what matters, let AutoShell ha ndle the boring stuff.
+🔹 Time-saving automation: Focus on what matters, let Auto Shell ha ndle the boring stuff.
 
 🔹 Perfect for sysadmins, devs, and power users
 Save time. Reduce errors. Automate everything
