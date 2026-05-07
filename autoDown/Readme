@@ -1,0 +1,158 @@
+# TaskPulse AutoDown
+
+Remotely shut down your Linux laptop from your phone using a simple browser request.
+
+---
+
+# Features
+
+* Runs automatically in the background using `systemd`
+* Starts automatically on boot
+* Lightweight Express.js server
+* Remote shutdown support from mobile devices
+* One-command installation
+
+---
+
+# Requirements
+
+* Linux system with `systemd`
+* Node.js installed
+* Phone and laptop connected to the same Wi-Fi/network
+
+---
+
+# Installation
+
+## 1. Download the installer
+
+Place the `install.sh` file anywhere on your system.
+
+---
+
+## 2. Make installer executable
+
+```bash
+chmod +x install.sh
+```
+
+---
+
+## 3. Run installer
+
+```bash
+sudo ./install.sh
+```
+
+The installer will:
+
+* Install dependencies
+* Create the background service
+* Enable auto-start on boot
+* Start the service automatically
+
+---
+
+# Using TaskPulse
+
+After installation, find your laptop IP address:
+
+```bash
+hostname -I
+```
+
+Example output:
+
+```bash
+192.168.1.5
+```
+
+Now open this URL from your phone browser:
+
+```bash
+http://192.168.1.5:51234/shutdown
+```
+
+Your laptop will shut down after 3 seconds.
+
+---
+
+# Firewall Issues
+
+If the connection does not work, your firewall may be blocking the port.
+
+For Ubuntu/Mint:
+
+```bash
+sudo ufw allow 51234
+```
+
+---
+
+# Service Management
+
+## Check service status
+
+```bash
+sudo systemctl status autodown
+```
+
+---
+
+## Restart service
+
+```bash
+sudo systemctl restart autodown
+```
+
+---
+
+## Stop service
+
+```bash
+sudo systemctl stop autodown
+```
+
+---
+
+## View logs
+
+```bash
+journalctl -u autodown -f
+```
+
+---
+
+# Uninstall
+
+```bash
+sudo systemctl stop autodown
+sudo systemctl disable autodown
+
+sudo rm /etc/systemd/system/autodown.service
+sudo rm -rf /opt/autodown
+
+sudo systemctl daemon-reload
+```
+
+---
+
+# Security Warning
+
+By default, anyone on the same network can trigger shutdown if they know your laptop IP and port.
+
+It is strongly recommended to add authentication before exposing this outside your local network.
+
+---
+
+# Default Port
+
+```text
+51234
+```
+
+---
+
+# Author
+
+Shashank Tiwari
