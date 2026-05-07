@@ -1,0 +1,17 @@
+[Unit]
+Description=TaskPulse AutoDown Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /home/archon/Desktop/Github-Projects/TaskPulse/autoDown/service.js
+WorkingDirectory=/home/archon/Desktop/Github-Projects/TaskPulse/autoDown
+Restart=always
+RestartSec=5
+User=root
+Environment=NODE_ENV=production
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
