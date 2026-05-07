@@ -9,9 +9,13 @@ app.listen(51234,()=>{
 
 app.get('/shutdown',(req,res)=>{
 
-    exec("systemctl poweroff", (error) => {
+    setTimeout(()=>{
+        exec("systemctl poweroff", (error) => {
         if (error) {
             console.log(error);
         }
     });
+    },3000)
+
+    res.send("Shutting down in 3 seconds")
 })
